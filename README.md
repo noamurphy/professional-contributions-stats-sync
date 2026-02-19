@@ -2,6 +2,8 @@
   Sync Contribution Graph
 </h1>
 
+[![Parser Tests](https://github.com/noamurphy/professional-contributions-stats-sync/actions/workflows/parser-tests.yml/badge.svg)](https://github.com/noamurphy/professional-contributions-stats-sync/actions/workflows/parser-tests.yml)
+
 ![GitHub Contributions Graph full squares that have various shades of green](img/cover-photo.png)
 
 <a href="https://twitter.com/kefimochi" align="right">
@@ -12,8 +14,8 @@
 
 1. [Use this repo as a template](https://github.com/kefimochi/sync-contribution-graph/generate) to create a new repo, and provide a name.
 2. Clone your new repo locally.  `cd` into the newly created directory.
-3. It requires NodeJS and `npm` (or `yarn`) to be installed on your machine. Run `npm i` or `yarn install` in your terminal.
-4. Use `npm start` or `yarn start` in order to trigger a series of terminal prompts that will help with configuration.
+3. Use Node.js `20` (see `.nvmrc`) and install dependencies with `npm i`.
+4. Use `npm start` to trigger terminal prompts for configuration.
    > On Windows, please run it from Git Bash.
 
 If you change your mind about these commits later, you can delete the repository and they'll disappear from your contribution graph.
@@ -28,6 +30,17 @@ If you change your mind about these commits later, you can delete the repository
 | `year`     | Year that you would like to sync with provided `username`. Currently doesn't support multiple years.                                                        | Current year                                         |
 | `execute`  | Let's the code know whether to simply generate `script.sh` that, when executed, will force push commits to `main`. Or to both generate and execute at once. | `false`, in other words generate _without_ execution |
 | `confirm`  | A quick double check that you're ready to proceed.                                                                                                          |
+
+## Safety Notes
+
+- By design, generated `script.sh` ends with `git push -f origin main`.
+- For a first run, choose `Only generate, no execution.` and inspect `script.sh` before running it.
+- You must have write access to the target GitHub repository.
+
+## Development
+
+- Run parser regression tests: `npm test`
+- CI runs parser tests on every push and pull request.
 
 ## How do I know this is secure? 🔒
 

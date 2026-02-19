@@ -5,7 +5,8 @@
   "description": "Generates empty commits to match contributions from other public GitHub accounts.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/interface.js"
+    "start": "node src/interface.js",
+    "test": "node test/parser.test.js"
   },
   "author": "Kate Efimova (@kefimochi)",
   "license": "MIT",
